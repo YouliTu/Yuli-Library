@@ -48,7 +48,6 @@ class _ {
         this.createList = () => {
             return class {
                 constructor(){
-                    super();
                     this.listSize = 0;
                     this.dataStore = [];
                     this.pos = 0;
@@ -62,10 +61,6 @@ class _ {
                     this.prev = () => {
                         this.listSize && (--this.pos);
                     };
-
-
-
-
                 }
                 add(newItem){
                     // this.dataStore.push(newItem);
