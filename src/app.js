@@ -7,7 +7,7 @@ const lodash = require("../library/myLodash");
 const _ = require("../library/christina");
 
 const init = () =>{
-    alert(1)
+    // alert(1)
 }
 
 

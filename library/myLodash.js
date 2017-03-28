@@ -41,10 +41,6 @@ class _ {
             return arr;
         };
 
-        this.selectSort = (arr) => {
-
-        }
-
         this.createList = () => {
             return class {
                 constructor(){
@@ -61,15 +57,37 @@ class _ {
                     this.prev = () => {
                         this.listSize && (--this.pos);
                     };
+                    this.next = () => {
+                        (this.pos < this.listSize) && ++this.pos;
+                    };
+                    this.currPos = () => {
+                        return this.pos;
+                    };
+                    this.moveTo = (index) => {
+                        this.pos = index;
+                        (index < 0) && (this.pos = 0);
+                        if ( index > this.listSize ){
+                            this.pos = this.listSize;
+                        }
+                    };
+                    this.getElement = () => {
+                        return this.dataStore[this.pos];
+                    };
+                    this.hasNext = () => {
+                        return this.pos < this.listSize;
+                    };
+                    this.Prev = () => {
+                        return this.pos >= 0;
+                    };
                 }
                 add(newItem){
                     // this.dataStore.push(newItem);
                     this.dataStore[this.listSize++] = newItem;
                 }
                 remove(item){
-                    let at = this.findItemIndex(item);
-                    if(at > -1){
-                        this.dataStore.splice(at,1);
+                    const at = this.findItemIndex(item);
+                    if (at > -1){
+                        this.dataStore.splice(at, 1);
                         --this.listSize;
                         return true;
                     }
@@ -82,19 +100,19 @@ class _ {
                     return this.dataStore.toString();
                 }
                 findItemIndex(item){
-                    let list = this.dataStore;
+                    const list = this.dataStore;
                     let index = -1;
-                    for (let i=0;i<this.dataStore.length;i++){
-                        if(list[i] = item){
+                    for (let i = 0;i < this.dataStore.length;i++){
+                        if (list[i] = item){
                             index = i;
                         }
                     }
                     return index;
                 }
-                insertAfter(item,after){
-                    let at = this.findItemIndex(after);
+                insertAfter(item, after){
+                    const at = this.findItemIndex(after);
                     if (at > -1){
-                        this.dataStore.splice(at +1,0,item);
+                        this.dataStore.splice(at + 1, 0, item);
                         ++this.listSize;
                         return true;
                     }
@@ -107,11 +125,10 @@ class _ {
                     this.listSize = this.pos = 0;
                 }
                 contains(item){
-                    return this.findItemIndex(item) > 0?true:false;
+                    return this.findItemIndex(item) > 0 ? true : false;
                 }
-
             };
-        }
+        };
     }
 }
 

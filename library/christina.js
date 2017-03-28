@@ -127,6 +127,7 @@ _.raf = () => {
             }, self.timeout);
         };
 };
+
 /**
  * 生成一组平滑的随机数，根据数量，将随机数均匀的分布
  * @param {String} count 需要生成几个数据
@@ -158,7 +159,7 @@ _.smoothRandom = (count, bits) => {
  * @param {Number} alpha 值 默认为1
  * @returns {object} {rbg:{String},toString:{function} } RGB颜色值
  */
-_.hexToRgba = (color,alpha) => {
+_.hexToRgba = (color, alpha) => {
     let newColor = color.replace("#", "");
     const a = parseFloat(alpha) || 1;
     if (newColor.length === 3) {
