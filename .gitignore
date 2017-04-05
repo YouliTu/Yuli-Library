@@ -1,3 +1,10 @@
 node_modules
 npm-debug.log
 .DS_Store
+src
+index.html
+package.json
+webpack.config.js
+yarn.lock
+ci.sh
+.eslintrc.json
