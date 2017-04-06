@@ -7,8 +7,10 @@
 const algo = require("./Algorithm/sort");
 const list = require("./dataStructure/List");
 const Stack = require("./dataStructure/Stack");
+const Queue = require("./dataStructure/Queue");
 module.exports = {
     algo,
     list,
     Stack,
-}
+    Queue,
+};

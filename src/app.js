@@ -8,18 +8,31 @@ const _ = require("../library/christina");
 
 const Other = require("../library/Algorithm/other");
 
+const Stack = Lodash.Stack;
+const s = new Stack();
+const Queue = Lodash.Queue;
+const q = new Queue();
+const o = new Other();
+
+
+
 const lg = (arg) => {
-    console.log(arg)
-}
+    console.log(arg);
+};
 
 const init = () => {
-    const Stack = Lodash.Stack;
-    const s = new Stack();
-    const _ = new Other();
+    q.enqueue("1");
+    q.enqueue("2");
+    q.enqueue("3");
+    lg(q.toString());
+    q.dequeue();
+    lg(q.toString());
+    lg(q.front());
+    lg(q.end());
 
 
 
-    lg(_.mulBase(125, 8));
+
 
 };
 
