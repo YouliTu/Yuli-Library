@@ -13,26 +13,20 @@ const s = new Stack();
 const Queue = Lodash.Queue;
 const q = new Queue();
 const o = new Other();
-
-
+const LList = Lodash.LList;
+const ll = new LList();
 
 const lg = (arg) => {
     console.log(arg);
 };
 
 const init = () => {
-    q.enqueue("1");
-    q.enqueue("2");
-    q.enqueue("3");
-    lg(q.toString());
-    q.dequeue();
-    lg(q.toString());
-    lg(q.front());
-    lg(q.end());
-
-
-
-
+    ll.insertAfter("the one","head");
+    ll.insertAfter("the two", "the one");
+    ll.insertAfter("the the", "the two");
+    ll.display();
+    ll.remove("the two")
+    ll.display()
 
 };
 
