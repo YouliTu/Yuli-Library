@@ -8,7 +8,9 @@ const algo = require("./Algorithm/sort");
 const list = require("./dataStructure/List");
 const Stack = require("./dataStructure/Stack");
 const Queue = require("./dataStructure/Queue");
-const LList = require("./dataStructure/LinkedList");
+const LList = require("./dataStructure/LinkedList").LList;
+const Dou = require("./dataStructure/LinkedList").Doubly;
+
 
 module.exports = {
     algo,
@@ -16,4 +18,5 @@ module.exports = {
     Stack,
     Queue,
     LList,
+    Dou
 };

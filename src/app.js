@@ -15,18 +15,20 @@ const q = new Queue();
 const o = new Other();
 const LList = Lodash.LList;
 const ll = new LList();
-
+const Dou = Lodash.Dou;
+const dl = new Dou();
 const lg = (arg) => {
     console.log(arg);
 };
 
 const init = () => {
-    ll.insertAfter("the one","head");
-    ll.insertAfter("the two", "the one");
-    ll.insertAfter("the the", "the two");
-    ll.display();
-    ll.remove("the two")
-    ll.display()
+    dl.insertAfter("the one","head");
+    dl.insertAfter("the two", "the one");
+    dl.insertAfter("the the", "the two");
+    dl.display();
+    dl.remove("the two")
+    // dl.display()
+    dl.dispReverse();
 
 };
 

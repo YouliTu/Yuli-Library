@@ -1,5 +1,3 @@
-
-
 class LList {
     constructor(){
         this.head = new Node("head");
@@ -45,6 +43,7 @@ class LList {
 class Doubly extends LList{
     constructor(){
         super();
+        this.head = new DoublyNode("head");
         this.insertAfter = (newElement, item) => {
             const newNode = new DoublyNode(newElement);
             const current = this.find(item);
@@ -64,11 +63,21 @@ class Doubly extends LList{
             }
         };
         this.findLast = () => {
-
+            // debugger
+            let currNode = this.head;
+            while(!(currNode.next == null)){
+                currNode = currNode.next;
+            }
+            return currNode;
+        }
+        this.dispReverse = () => {
+            let currNode = this.findLast();
+            while(currNode.prev !== null){
+                console.log(currNode.element);
+                currNode = currNode.prev;
+            }
         }
     }
-
-
 }
 
 
@@ -80,13 +89,16 @@ class Node {
 }
 
 class DoublyNode extends Node {
-    constructor(){
-        super();
+    constructor(ele){
+        super(ele);
         this.prev = null;
     }
 }
 
-module.exports = LList;
+module.exports = {
+    LList,
+    Doubly,
+};
 
 
 
