@@ -17,12 +17,15 @@ const LList = Lodash.LList;
 const ll = new LList();
 const Dou = Lodash.Dou;
 const dl = new Dou();
+// const Dic = new Dic();
+// const di =
+
 const lg = (arg) => {
     console.log(arg);
 };
 
 const init = () => {
-    dl.insertAfter("the one","head");
+    After("the one","head");
     dl.insertAfter("the two", "the one");
     dl.insertAfter("the the", "the two");
     dl.display();

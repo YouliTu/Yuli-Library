@@ -10,7 +10,7 @@ const Stack = require("./dataStructure/Stack");
 const Queue = require("./dataStructure/Queue");
 const LList = require("./dataStructure/LinkedList").LList;
 const Dou = require("./dataStructure/LinkedList").Doubly;
-
+const Dic = require("./dataStructure/Dictionarys");
 
 module.exports = {
     algo,
@@ -18,5 +18,6 @@ module.exports = {
     Stack,
     Queue,
     LList,
-    Dou
+    Dou,
+    Dic,
 };
