@@ -18,7 +18,7 @@ class Dictionarys {
         }
         this.clear = () => {
             Object.keys(this.datastore).map((item) => {
-                delete this.datastore[item=]
+                delete this.datastore[item]
             })
         }
         this.sortShow = () => {

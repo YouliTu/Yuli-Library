@@ -17,6 +17,8 @@ const LList = Lodash.LList;
 const ll = new LList();
 const Dou = Lodash.Dou;
 const dl = new Dou();
+const Hash = Lodash.Hash;
+const hh = new Hash();
 // const Dic = new Dic();
 // const di =
 
@@ -25,14 +27,11 @@ const lg = (arg) => {
 };
 
 const init = () => {
-    After("the one","head");
-    dl.insertAfter("the two", "the one");
-    dl.insertAfter("the the", "the two");
-    dl.display();
-    dl.remove("the two")
-    // dl.display()
-    dl.dispReverse();
-
+    let list = ["ya","lyblyu","tebf","rt"];
+    list.map((item) => {
+        hh.put(item);
+    });
+    hh.showDistro();
 };
 
 

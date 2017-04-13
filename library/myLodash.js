@@ -11,6 +11,7 @@ const Queue = require("./dataStructure/Queue");
 const LList = require("./dataStructure/LinkedList").LList;
 const Dou = require("./dataStructure/LinkedList").Doubly;
 const Dic = require("./dataStructure/Dictionarys");
+const Hash = require("./dataStructure/HashTable");
 
 module.exports = {
     algo,
@@ -20,4 +21,5 @@ module.exports = {
     LList,
     Dou,
     Dic,
+    Hash,
 };
