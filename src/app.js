@@ -27,9 +27,14 @@ const lg = (arg) => {
 };
 
 const init = () => {
-    let list = ["ya","lyblyu","tebf","rt"];
-    list.map((item) => {
-        hh.put(item);
+    let numStudents = 10;
+    let arrSize = 97;
+    let idLen = 9;
+    let students = new Array(numStudents);
+    hh.getStuData(students);
+    students.forEach((item) => {
+        console.log(`${item.substring(0,8)}:${item.substring((9))}`);
+        hh.put(item)
     });
     hh.showDistro();
 };
