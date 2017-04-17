@@ -2,6 +2,8 @@ class HashTable {
     constructor(){
         // 质数为了减少0的散列值 从而减少碰撞
         this.table = new Array(137);
+        // 线性探测使用
+        this.value = [];
         // data是键值，为一个string
         // 散列函数，规定 键值转key的规则
         this.simpleHash = (data) => {
@@ -74,6 +76,29 @@ class HashTable {
             let pos = this.betterHash(keys);
             if(this.table[pos][index]!== undefined){
                 return this.table[pos];
+            }
+            return undefined;
+        }
+        // 线性探测法 开放 q
+        this.linePut = (key, data) => {
+            let pos = this.betterHash(key)
+            if(this.table[pos] === undefined){
+                this.table[pos] = data;
+                this.value[pos] = data;
+            } else {
+                while(this.table[pos] !== undefined){
+                    pos++;
+                    this.table[pos] = key;
+                    this.value[pos] = data;
+                }
+            }
+        }
+        this.lineGet = (key) =>{
+            let pos = this.betterHash(key) || -1;
+            if(pos > -1){
+                while(this.table[pos] !== undefined){
+                    return this.value[pos];
+                }
             }
             return undefined;
         }
