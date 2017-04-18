@@ -6,6 +6,27 @@
 
 const _ = {};
 
+
+_.type = function (obj) {
+    return Object.prototype.toString.call(obj).replace(/\[object\s|\]/g, "");
+};
+
+_.isArray = function (list) {
+    return _.type(list) === "Array";
+};
+
+_.isString = function (list) {
+    return _.type(list) === "String";
+};
+
+_.isObject = function (list) {
+    return _.type(list) === "Object";
+};
+
+_.isFunction = function (list) {
+    return _.type(list) === "Function";
+};
+
 _.isNullString = (data) => {
     return data.replace(/(^\s*)|(\s*$)/g, "").length ? false : true;
 };
@@ -208,6 +229,25 @@ _.debounce = (fn, delay) => {
             fn(...args);
         }, delay);
     };
+};
+
+/**
+ * 取url中的参数
+ * 调用方法_.getUrlParam("参数名")
+ * @param {string} name The url param key name.
+ * @returns {*} The value with the key in the url search.
+ */
+_.getUrlParam = function (name) {
+    const reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`, "i"),
+        stringStart = 1;
+    const r = window.location.href.substr(stringStart).match(reg);
+    if (r !== null) {
+        const valueIndex = 2;
+
+        return decodeURIComponent(r[valueIndex]);
+    }
+
+    return null;
 };
 
 module.exports = _;
