@@ -12,7 +12,7 @@ const LList = require("./dataStructure/LinkedList").LList;
 const Dou = require("./dataStructure/LinkedList").Doubly;
 const Dic = require("./dataStructure/Dictionarys");
 const Hash = require("./dataStructure/HashTable");
-
+const BST = require("./dataStructure/BST");
 module.exports = {
     algo,
     list,
@@ -22,4 +22,5 @@ module.exports = {
     Dou,
     Dic,
     Hash,
+    BST,
 };
