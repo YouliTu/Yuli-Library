@@ -13,6 +13,7 @@ const Dou = require("./dataStructure/LinkedList").Doubly;
 const Dic = require("./dataStructure/Dictionarys");
 const Hash = require("./dataStructure/HashTable");
 const BST = require("./dataStructure/BST");
+const Graph = require("./dataStructure/Graph");
 module.exports = {
     algo,
     list,
@@ -23,4 +24,5 @@ module.exports = {
     Dic,
     Hash,
     BST,
+    Graph,
 };

@@ -23,20 +23,20 @@ const hh = new Hash();
 // const di =
 const BST = Lodash.BST;
 const bs = new BST();
+const Gra = Lodash.Graph;
+// const gra = new Gra();
 
 const lg = (arg) => {
     console.log(arg);
 };
 
 const init = () => {
-    bs.add(23)
-    bs.add(45)
-    bs.add(16)
-    bs.add(37)
-    bs.add(3)
-    bs.add(99)
-    bs.add(22)
-    console.log(bs.toArray());
+    let gra = new Gra(5);
+    gra.addEdge(0,1)
+    gra.addEdge(0,2)
+    gra.addEdge(1,3)
+    gra.addEdge(2,4)
+    gra.showGraph();
     // bs.toString();
 };
 
