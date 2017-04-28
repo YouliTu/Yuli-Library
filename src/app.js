@@ -25,13 +25,13 @@ const BST = Lodash.BST;
 const bs = new BST();
 const Gra = Lodash.Graph;
 // const gra = new Gra();
-
+let gra = new Gra(5);
 const lg = (arg) => {
     console.log(arg);
 };
 
 const init = () => {
-    let gra = new Gra(5);
+
     gra.addEdge(0,1)
     gra.addEdge(0,2)
     gra.addEdge(1,3)
