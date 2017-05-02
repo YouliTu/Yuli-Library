@@ -3,7 +3,7 @@
  */
 
 const Lodash = require("../library/myLodash");
-
+const Sort = require("../library/Algorithm/sort");
 const _ = require("../library/christina");
 
 const Other = require("../library/Algorithm/other");
@@ -26,18 +26,15 @@ const bs = new BST();
 const Gra = Lodash.Graph;
 // const gra = new Gra();
 let gra = new Gra(5);
+const sort = new Sort();
 const lg = (arg) => {
     console.log(arg);
 };
 
 const init = () => {
-
-    gra.addEdge(0,1)
-    gra.addEdge(0,2)
-    gra.addEdge(1,3)
-    gra.addEdge(2,4)
-    gra.showGraph();
-    // bs.toString();
+    let arr =[23, 38, 22, 45, 23, 67, 31, 15, 41];
+    sort.Qsort(arr)
+   lg(arr);
 };
 
 
