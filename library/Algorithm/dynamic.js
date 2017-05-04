@@ -66,11 +66,48 @@ class Dynamic {
             // word2.substr(index2-max,max)
             return word1.substr(index - max,max)
         }
+        // 01背包问题
+        this.max = (a,b) => {
+            return (a > b)? a :b;
+        }
+        this.kabang = (capacity,size,value) => {
+            let n = size.length;
+            // 建立二维数组
+            let kaban = [];
+            // 为啥外层是n？ 01背包，每个物体只有一次放入机会，
+            // 否则就会造成直接多次选择最大夏普值物体
+            for(let i = 0; i < n + 1;i++){
+                kaban[i] = [];
+                let sizeAmount = 0;
+                for(let j = 0; j < capacity +1;j++){
+                    if( i === 0 || j === 0){
+                        kaban[i][j] = 0;
+                        // 状态转移方程
+                        // i:物体序号
+                        // j: 背包容量
+                        // size[i] 物体重量
+                        // value[i] 物体价值
+                        // kaban[i][j] 重量为j时，放入第i个的物体的总价值
 
+                        // 动态状态下的背包容量，是否能装下目前的物体
+                        // 此处书上有误，j >= size[i - 1] 这样成只要小于最大都能装了
+                    // } else if (j >= ( sizeAmount + size[i - 1] ) ){
+                    } else if (j >= size[i - 1]){
+                        // 对每个物体进行放入实验，测试最大value
+                        kaban[i][j] = this.max(
+                            // 以前包里有的价值 + 新价值
+                            kaban[i - 1][j] + value[i - 1],
+                            kaban[i - 1][j]
+                        )
+                    } else {
+                        kaban[i][j] = kaban[i - 1][j];
+                    }
+                }
+            }
+            console.log(n,capacity,kaban)
+            return kaban[n][capacity];
+        }
     }
-
-
-
 }
 
 module.exports = Dynamic;
