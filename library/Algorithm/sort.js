@@ -83,28 +83,14 @@ class Sort {
         return merge(mergeSort(left),mergeSort(right));
     }
     partition(myArray, left, right){
-        // let pivot = myArray[Math.floor(right + left) / 2],
-        //     i = left,
-        //     j = right;
-        // while(i <= j){
-        //     while(myArray[i] < pivot){
-        //         i++;
-        //     };
-        //     while(myArray[j] > pivot){
-        //         j--;
-        //     };
-        //     if(i <= j){
-        //         this.swap(myArray, i, j);
-        //         i++;
-        //         j--;
-        //     };
-        // }
         // 保存定位点
         let temp = myArray[left]
         while (left < right){
             // 交换
             while(left < right && myArray[right] >= temp)--right;
-            myArray[left] = myArray[right];
+            myArray[left] =
+
+                myArray[right];
             while(left < right && myArray[left] <= temp)++left;
             myArray[right] = myArray[left];
         }
@@ -119,7 +105,6 @@ class Sort {
     ){
         if(left >= right) return;
         let index = this.partition(arr, left, right);
-        // debugger
         // 排除中间位
         // if(left < index - 1){
             this.Qsort(arr, left, index - 1);
