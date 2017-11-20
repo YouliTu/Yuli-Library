@@ -57,17 +57,7 @@ _.isEmptyObject = (object) => {
     }
     return true;
 };
-// 对已有的项目进行结构复制，将第一个参数有的字段值 复制到 第二个参数
-_.copyDataFromObject = (origin, newParam) => {
-    for (const key in origin){
-        const value = origin[key];
-        if (typeof value === "object"){
-            _.copyDataFromObject(value, newParam[key]);
-        } else {
-            newParam[key] = value;
-        }
-    }
-};
+
 _.copyArr = (arr) => {
     const newArr = [];
     arr.forEach((item) => {
@@ -93,19 +83,7 @@ _.setStatePromise = (that, newState) => {
         });
     });
 };
-// 根据数值正负返回对应颜色值
-_.judgeColor = (data) => {
-    const num = parseFloat(data);
-    // 负数、正数、0
-    // const list = ["#5BBF7", "#FC5858", "#fff"];
-    let rs = 2;
-    if (num > 0){
-        rs = 1;
-    } else if (num === 0) {
-        rs = 0;
-    }
-    return rs;
-};
+
 
 // 判断字符串有多少个字节
 _.strByteLength = (data) => {
@@ -127,27 +105,6 @@ _.isIE = (version) => {
     return b.getElementsByTagName("i").length === 1;
 };
 
-_.raf = () => {
-    return window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        window.msRequestAnimationFrame ||
-
-        function (callback) {
-            let start,
-                finish;
-            const self = {};
-            window.setTimeout(() => {
-                start = +new Date();
-                callback(start);
-                finish = +new Date();
-
-                self.timeout = 1000 / 60 - (finish - start);
-
-            }, self.timeout);
-        };
-};
 
 /**
  * 生成一组平滑的随机数，根据数量，将随机数均匀的分布
@@ -248,6 +205,49 @@ _.getUrlParam = function (name) {
     }
 
     return null;
+};
+
+
+// 勾股定理计算 参数必须为number类型
+_.pythagoras = (side1,side2,hypotenuse) => {
+    let rs;
+    if(!hypotenuse){
+        rs = Math.sqrt(  Math.pow(+side1,2) + Math.pow(+side2,2)  );
+    }else {
+        const s1 = +side1 || 0;
+        const s2 = +side1 || 0;
+        rs = Math.sqrt(  Math.pow(+hypotenuse,2) - Math.pow(s1,2) - Math.pow(s2,2)  );
+    }
+    return  rs;
+};
+// 获得一个区间的整数随机数 不指定则为 [0- 100] 闭区间
+_.intRandom = (max = 100,min = 0) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+_.raf = (callback) => {
+    window.ranf =  window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+
+        function (callback) {
+            let start,
+                finish;
+            const self = {};
+            window.setTimeout(() => {
+                start = +new Date();
+                callback(start);
+                finish = +new Date();
+
+                self.timeout = 1000 / 60 - (finish - start);
+
+            }, self.timeout);
+        };
+    return window.ranf(callback);
 };
 
 module.exports = _;
