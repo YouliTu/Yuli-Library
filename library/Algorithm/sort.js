@@ -88,9 +88,7 @@ class Sort {
         while (left < right){
             // 交换
             while(left < right && myArray[right] >= temp)--right;
-            myArray[left] =
-
-                myArray[right];
+            myArray[left] =myArray[right];
             while(left < right && myArray[left] <= temp)++left;
             myArray[right] = myArray[left];
         }

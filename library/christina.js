@@ -249,5 +249,17 @@ _.raf = (callback) => {
         };
     return window.ranf(callback);
 };
+/**
+ * 数字映射
+ * @param {number} origin 提供数据
+ * @param {number} oriStart 数据起点
+ * @param {number} oriEnd 数据重点
+ * @param {number} tarStart 映射数据起点
+ * @param {number} tarEnd 映射数据终点
+ * @returns {number} 映射数据
+ */
+_.analogy = (origin,oriStart,oriEnd,tarStart,tarEnd) => {
+    return ((tarEnd - tarStart) * ((origin - oriStart) / (oriEnd - oriStart))) + tarStart;
+}
 
 module.exports = _;
